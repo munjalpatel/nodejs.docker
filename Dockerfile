@@ -5,8 +5,11 @@ RUN echo "alias ll='ls --color=auto -l'" >> /root/.bashrc
 RUN echo "alias l='ls --color=auto -lA'" >> /root/.bashrc
 RUN echo "alias c='clear'" >> /root/.bashrc
   
-WORKDIR /app
-RUN npm install -g express bower gulp nodemon
+RUN npm install -g express nodemon
+
+ONBUILD ./src /app
+ONBUILD WORKDIR /app
+ONBUILD RUN npm install
+ONBUILD CMD node server.js
 
 EXPOSE 4000
-CMD []
