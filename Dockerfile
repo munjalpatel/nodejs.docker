@@ -7,7 +7,8 @@ RUN echo "alias c='clear'" >> /root/.bashrc
   
 WORKDIR /app
 RUN npm install -g express bower gulp nodemon
-ONBUILD RUN npm install
+RUN cd /app
+RUN npm install
 
 EXPOSE 4000
 CMD []
