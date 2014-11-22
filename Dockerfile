@@ -7,7 +7,7 @@ RUN echo "alias c='clear'" >> /root/.bashrc
   
 RUN npm install -g express nodemon
 
-ONBUILD ./src /app
+ONBUILD . /app
 ONBUILD WORKDIR /app
 ONBUILD RUN npm install
 ONBUILD CMD node server.js
